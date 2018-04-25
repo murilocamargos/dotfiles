@@ -49,8 +49,6 @@ set viminfo=
 
 " Replace tabs for spaces
 set expandtab
-set shiftwidth=4
-set tabstop=4
 
 " Indentation and syntax
 filetype plugin indent on
@@ -58,10 +56,9 @@ set autoindent
 syntax on
 
 " Indentation settings per file type
-au BufNewFile,BufRead *.js, *.html, *.css, *.rb, *.yml, *.yaml
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2
+au FileType ruby setl sw=2 sts=2 et
+au FileType javascript setl sw=2 sts=2 et
+au FileType python setl sw=4 sts=4 et
 
 " Viewing options, like cursor position and number of lines
 set cursorline
@@ -136,3 +133,4 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|venv'
 let NERDTreeIgnore=['\.pyc$', '\~$']
 au VimEnter *  NERDTree
+let NERDTreeShowHidden=1
